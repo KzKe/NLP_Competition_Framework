@@ -18,21 +18,19 @@ seed_torch()
 
 # confusion maxtrix 
 from sklearn.metrics import confusion_matrix
-y_true = [2, 0, 2, 2, 0, 1]
-y_pred = [0, 0, 2, 2, 0, 2]
-cf_matrix = confusion_matrix(y_true, y_pred)
 import seaborn as sns
+cf_matrix = confusion_matrix(t1, o1)
+print(cf_matrix)
 sns.heatmap(cf_matrix, annot=True)
-
-group_names = [‘True Neg’,’False Pos’,’False Neg’,’True Pos’]
-group_counts = [“{0:0.0f}”.format(value) for value in
+group_names = ['True Neg','False Pos','False Neg','True Pos']
+group_counts = ["{0:0.0f}".format(value) for value in
                 cf_matrix.flatten()]
-group_percentages = [“{0:.2%}”.format(value) for value in
+group_percentages = ["{0:.2%}".format(value) for value in
                      cf_matrix.flatten()/np.sum(cf_matrix)]
-labels = [f”{v1}\n{v2}\n{v3}” for v1, v2, v3 in
+labels = [f"{v1}\n{v2}\n{v3}" for v1, v2, v3 in
           zip(group_names,group_counts,group_percentages)]
 labels = np.asarray(labels).reshape(2,2)
-sns.heatmap(cf_matrix, annot=labels, fmt=‘’, cmap='Blues')
+sns.heatmap(cf_matrix, annot=labels, fmt='', cmap='Blues')
 
 
 # pandas columns not equal 
