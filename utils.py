@@ -35,3 +35,5 @@ labels = np.asarray(labels).reshape(2,2)
 sns.heatmap(cf_matrix, annot=labels, fmt=‘’, cmap='Blues')
 
 
+# columns not equal 
+tests.loc[~(tests['sentiment'] == tests['pred'])]
