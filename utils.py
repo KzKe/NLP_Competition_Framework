@@ -35,5 +35,8 @@ labels = np.asarray(labels).reshape(2,2)
 sns.heatmap(cf_matrix, annot=labels, fmt=‘’, cmap='Blues')
 
 
-# columns not equal 
+# pandas columns not equal 
 tests.loc[~(tests['sentiment'] == tests['pred'])]
+
+# pandas show all text 
+pd.set_option('display.max_colwidth', -1)
