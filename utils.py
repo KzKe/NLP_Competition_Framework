@@ -41,3 +41,9 @@ pd.set_option('display.max_colwidth', -1)
 
 # pandas read text file 
 sup_test = pd.read_csv('/content/data/imdb_unsup_train.txt',delimiter="\t")
+
+# time difference
+import datetime
+a = datetime.datetime.now()
+b = datetime.datetime.now()
+print(b-a)
