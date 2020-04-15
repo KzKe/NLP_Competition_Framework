@@ -27,7 +27,7 @@ class Translate:
             response = httpClient.getresponse()
             result_all = response.read().decode("utf-8")
             result = json.loads(result_all)
-            print(result)
+            # print(result)
 
             temp = str(result['trans_result'][0]['dst'])
             # print(temp)
