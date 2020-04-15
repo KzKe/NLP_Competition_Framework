@@ -1,3 +1,10 @@
+import pandas as pd 
+import http.client
+import hashlib
+import urllib
+import random
+import json
+
 class Translate:
 
   def __init__(self, df, secretKey=None, appid=None):
@@ -8,12 +15,12 @@ class Translate:
 
   def translate_forward(self, fromLang, toLang, text_col):
       tranlated = []
-      httpClient = None
-      myurl = '/api/trans/vip/translate'
-      salt = random.randint(32768, 65536)
       
       for q in self.df[text_col]:
           # print(q)
+          httpClient = None
+          myurl = '/api/trans/vip/translate'
+          salt = random.randint(32768, 65536)
           sign = appid + q + str(salt) + secretKey
           sign = hashlib.md5(sign.encode()).hexdigest()
           myurl = myurl + '?appid=' + appid + '&q=' + urllib.parse.quote(q) + '&from=' + fromLang + '&to=' + toLang + '&salt=' + str(
@@ -49,6 +56,8 @@ class Translate:
       self.df['back_tranlated'] = back_tranlated
       
       return self.df
+
+
 
 
 # baidu api: https://fanyi-api.baidu.com/api/trans/product/desktop?req=detail
