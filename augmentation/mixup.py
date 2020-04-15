@@ -1,15 +1,19 @@
 import random
 import pandas as pd 
 
-class Augmentations:
+class Mixup:
+  '''
+  对标定数据进行随机混合，生成新的训练数据
+  '''
   def __init__(self):
     # self.df = df 
     return  
   
   def mixup(self, df, label, txtcol, nums, aug_label, ratio=0.5):
-    '''
-    对训练数据进行随机的混合，生成新的数据
-    '''
+      '''
+      针对训练数据进行随机的混合，生成新的数据
+      '''
+      
       if aug_label:
         # 针对某个label进行扩容
         data = df[df[label]==aug_label]
@@ -32,3 +36,12 @@ class Augmentations:
       
       return pd.DataFrame.from_dict({txtcol: gnt_text,
                                       label: gnt_label})
+  
+    
+      
+# augument = Augmentations()
+# new_data = augument.mixup(data, 
+#                           label='label',
+#                           txtcol = 'comment', 
+#                           nums=10,
+#                           aug_label=1)

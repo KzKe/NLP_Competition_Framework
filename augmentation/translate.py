@@ -61,14 +61,14 @@ class Translate:
 
 
 # baidu api: https://fanyi-api.baidu.com/api/trans/product/desktop?req=detail
-appid = ''  # 填写你的appid
-secretKey = ''  # 填写你的密钥
+# appid = ''  # 填写你的appid
+# secretKey = ''  # 填写你的密钥
 
-trans = Translate(df=new_data, 
-                  # text_col='comment',
-                  secretKey = secretKey, 
-                  appid=appid)
+# trans = Translate(df=new_data, 
+#                   # text_col='comment',
+#                   secretKey = secretKey, 
+#                   appid=appid)
 
 
 
-result = trans.translate(fromLang='zh', toLang='en', text_col='comment')
+# result = trans.translate(fromLang='zh', toLang='en', text_col='comment')
