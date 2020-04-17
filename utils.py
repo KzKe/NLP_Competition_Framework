@@ -47,3 +47,10 @@ import datetime
 a = datetime.datetime.now()
 b = datetime.datetime.now()
 print(b-a)
+
+
+# rename columns
+translated_data = translated_data.rename(columns={'back_tranlated': 'comment'})
+
+# concate
+dataset2 = pd.concat([dataset1, new_data, new_data2, new_data3], axis=0).reset_index(drop=True)
