@@ -54,3 +54,13 @@ translated_data = translated_data.rename(columns={'back_tranlated': 'comment'})
 
 # concate
 dataset2 = pd.concat([dataset1, new_data, new_data2, new_data3], axis=0).reset_index(drop=True)
+
+
+# check GPU usage 
+from pynvml import *
+nvmlInit()
+h = nvmlDeviceGetHandleByIndex(0)
+info = nvmlDeviceGetMemoryInfo(h)
+print(f'total    : {info.total}')
+print(f'free     : {info.free}')
+print(f'used     : {info.used}')
